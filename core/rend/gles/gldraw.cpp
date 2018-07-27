@@ -1,5 +1,6 @@
 #include "gles.h"
 #include "rend/rend.h"
+#include "hw/pvr/ta_ctx.h"
 
 #include <algorithm>
 /*

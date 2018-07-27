@@ -4,6 +4,7 @@
 #include "hw/holly/holly_intc.h"
 #include "oslib/oslib.h"
 #include "hw/sh4/sh4_sched.h"
+#include "ta_ctx.h"
 
 //SPG emulation; Scanline/Raster beam registers & interrupts
 //Time to emulate that stuff correctly ;)

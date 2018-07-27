@@ -1,6 +1,8 @@
 #pragma once
 #include "drkPvr.h"
-#include "ta_ctx.h"
+#include "ta_structs.h"
+
+struct TA_context;
 
 extern u32 VertexCount;
 extern u32 FrameCount;

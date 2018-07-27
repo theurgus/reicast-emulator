@@ -318,63 +318,6 @@
     <ClCompile Include="..\core\rend\d3d11\d3d11.cpp">
       <Filter>rend\d3d11</Filter>
     </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\base64-decode.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\client.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\client-handshake.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\client-parser.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\context.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\extension.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\extension-deflate-frame.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\extension-deflate-stream.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\libwebsockets.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\lws-plat-unix.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\lws-plat-win.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\output.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\parsers.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\pollfd.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\server.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\server-handshake.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\service.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\sha-1.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
-    <ClCompile Include="..\core\deps\libwebsocket\handshake.c">
-      <Filter>deps\libwebsocket</Filter>
-    </ClCompile>
     <ClCompile Include="..\core\webui\server.cpp">
       <Filter>webui</Filter>
     </ClCompile>
@@ -428,6 +371,15 @@
     </ClCompile>
     <ClCompile Include="..\core\cfg\ini.cpp">
       <Filter>cfg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core\rend\d3d9\nulldc_d3d9.cpp">
+      <Filter>rend\d3d9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core\rend\d3d9\nulldc_ta.cpp">
+      <Filter>rend\d3d9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core\rend\d3d9\nulldc_TexCache.cpp">
+      <Filter>rend\d3d9</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -565,6 +517,9 @@
     </Filter>
     <Filter Include="hw\naomi">
       <UniqueIdentifier>{1752487d-0739-47bf-8c6b-1d38e6f389f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rend\d3d9">
+      <UniqueIdentifier>{4b89089c-0b83-450a-96c5-bbaa0bee92d0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -889,21 +844,6 @@
     <ClInclude Include="..\core\hw\pvr\pvr_mem.h">
       <Filter>hw\pvr\emu</Filter>
     </ClInclude>
-    <ClInclude Include="..\core\deps\libwebsocket\extension-deflate-frame.h">
-      <Filter>deps\libwebsocket</Filter>
-    </ClInclude>
-    <ClInclude Include="..\core\deps\libwebsocket\extension-deflate-stream.h">
-      <Filter>deps\libwebsocket</Filter>
-    </ClInclude>
-    <ClInclude Include="..\core\deps\libwebsocket\libwebsockets.h">
-      <Filter>deps\libwebsocket</Filter>
-    </ClInclude>
-    <ClInclude Include="..\core\deps\libwebsocket\lws_config.h">
-      <Filter>deps\libwebsocket</Filter>
-    </ClInclude>
-    <ClInclude Include="..\core\deps\libwebsocket\private-libwebsockets.h">
-      <Filter>deps\libwebsocket</Filter>
-    </ClInclude>
     <ClInclude Include="..\core\webui\server.h">
       <Filter>webui</Filter>
     </ClInclude>
@@ -946,6 +886,27 @@
     <ClInclude Include="..\core\hw\sh4\modules\mmu_impl.h">
       <Filter>hw\sh4\modules</Filter>
     </ClInclude>
+    <ClInclude Include="..\core\rend\d3d9\nulldc_d3d9.h">
+      <Filter>rend\d3d9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core\rend\d3d9\pvr_algo\pvr_algo.hpp">
+      <Filter>rend\d3d9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core\rend\d3d9\pvr_algo\pvr_r.hpp">
+      <Filter>rend\d3d9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core\rend\d3d9\nulldc_ta.h">
+      <Filter>rend\d3d9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core\rend\d3d9\nulldc_TexCache.h">
+      <Filter>rend\d3d9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core\rend\d3d9\nulldc_ta_const_df.h">
+      <Filter>rend\d3d9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core\rend\d3d9\nulldc_ta_structs.h">
+      <Filter>rend\d3d9</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\core\deps\zlib\Makefile">
@@ -957,5 +918,13 @@
     <None Include="..\core\rec-x86\rec_lin86_asm.S">
       <Filter>rec-x86</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\core\rend\d3d9\ps_hlsl.fx">
+      <Filter>rend\d3d9</Filter>
+    </FxCompile>
+    <FxCompile Include="..\core\rend\d3d9\vs_hlsl.fx">
+      <Filter>rend\d3d9</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

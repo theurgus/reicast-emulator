@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Fast|Win32">
       <Configuration>Fast</Configuration>
@@ -45,25 +45,6 @@
     <ClCompile Include="..\core\deps\libpng\pngwrite.c" />
     <ClCompile Include="..\core\deps\libpng\pngwtran.c" />
     <ClCompile Include="..\core\deps\libpng\pngwutil.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\base64-decode.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\client-handshake.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\client-parser.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\client.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\context.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\extension-deflate-frame.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\extension-deflate-stream.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\extension.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\handshake.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\libwebsockets.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\lws-plat-unix.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\lws-plat-win.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\output.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\parsers.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\pollfd.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\server-handshake.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\server.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\service.c" />
-    <ClCompile Include="..\core\deps\libwebsocket\sha-1.c" />
     <ClCompile Include="..\core\deps\zlib\adler32.c" />
     <ClCompile Include="..\core\deps\zlib\compress.c" />
     <ClCompile Include="..\core\deps\zlib\crc32.c" />
@@ -187,6 +168,14 @@
     <ClCompile Include="..\core\reios\reios.cpp" />
     <ClCompile Include="..\core\reios\reios_elf.cpp" />
     <ClCompile Include="..\core\rend\d3d11\d3d11.cpp" />
+    <ClCompile Include="..\core\rend\d3d9\nulldc_d3d9.cpp">
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Fast|Win32'">true</ShowIncludes>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Slow|Win32'">true</ShowIncludes>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Fast|x64'">true</ShowIncludes>
+      <ShowIncludes Condition="'$(Configuration)|$(Platform)'=='Slow|x64'">true</ShowIncludes>
+    </ClCompile>
+    <ClCompile Include="..\core\rend\d3d9\nulldc_ta.cpp" />
+    <ClCompile Include="..\core\rend\d3d9\nulldc_TexCache.cpp" />
     <ClCompile Include="..\core\rend\gles\gldraw.cpp" />
     <ClCompile Include="..\core\rend\gles\gles.cpp" />
     <ClCompile Include="..\core\rend\gles\gltex.cpp" />
@@ -214,11 +203,6 @@
     <ClInclude Include="..\core\deps\libpng\png.h" />
     <ClInclude Include="..\core\deps\libpng\pngconf.h" />
     <ClInclude Include="..\core\deps\libpng\pngpriv.h" />
-    <ClInclude Include="..\core\deps\libwebsocket\extension-deflate-frame.h" />
-    <ClInclude Include="..\core\deps\libwebsocket\extension-deflate-stream.h" />
-    <ClInclude Include="..\core\deps\libwebsocket\libwebsockets.h" />
-    <ClInclude Include="..\core\deps\libwebsocket\lws_config.h" />
-    <ClInclude Include="..\core\deps\libwebsocket\private-libwebsockets.h" />
     <ClInclude Include="..\core\deps\zlib\crc32.h" />
     <ClInclude Include="..\core\deps\zlib\deflate.h" />
     <ClInclude Include="..\core\deps\zlib\inffast.h" />
@@ -332,6 +316,13 @@
     <ClInclude Include="..\core\reios\gdrom_hle.h" />
     <ClInclude Include="..\core\reios\reios.h" />
     <ClInclude Include="..\core\reios\reios_elf.h" />
+    <ClInclude Include="..\core\rend\d3d9\nulldc_d3d9.h" />
+    <ClInclude Include="..\core\rend\d3d9\nulldc_ta.h" />
+    <ClInclude Include="..\core\rend\d3d9\nulldc_ta_const_df.h" />
+    <ClInclude Include="..\core\rend\d3d9\nulldc_ta_structs.h" />
+    <ClInclude Include="..\core\rend\d3d9\pvr_algo\pvr_algo.hpp" />
+    <ClInclude Include="..\core\rend\d3d9\pvr_algo\pvr_r.hpp" />
+    <ClInclude Include="..\core\rend\d3d9\nulldc_TexCache.h" />
     <ClInclude Include="..\core\rend\gles\gles.h" />
     <ClInclude Include="..\core\rend\rend.h" />
     <ClInclude Include="..\core\rend\TexCache.h" />
@@ -354,11 +345,20 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Slow|x64'">true</ExcludedFromBuild>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\core\rend\d3d9\ps_hlsl.fx">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\core\rend\d3d9\vs_hlsl.fx">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58B14048-EACB-4780-8B1E-9C84C2C30A8E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>reicast</RootNamespace>
     <ProjectName>reicast</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Fast|Win32'" Label="Configuration">
@@ -366,26 +366,26 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Fast|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Slow|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Slow|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">

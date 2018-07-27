@@ -617,6 +617,19 @@ struct settings_t
 		bool WideScreen;
 		bool ModifierVolumes;
 		bool Clipping;
+
+		u32 nulldc_PaletteMode;
+		bool nulldc_VSync;
+		u32 nulldc_ZBufferMode;
+		u32 nulldc_AspectRatioMode;
+		u32 nulldc_ModVolMode;
+
+		u32 nulldc_ResolutionMode;
+		u32 nulldc_AlphaSortMode;
+
+		u32 nulldc_MultiSampleCount;
+		u32 nulldc_MultiSampleQuality;
+		u32 nulldc_TexCacheMode;
 	} rend;
 
 	struct

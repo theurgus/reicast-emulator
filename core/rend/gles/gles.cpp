@@ -2,6 +2,7 @@
 #include "gles.h"
 #include "rend/TexCache.h"
 #include "cfg/cfg.h"
+#include "hw/pvr/ta_ctx.h"
 
 #ifdef TARGET_PANDORA
 #include <unistd.h>

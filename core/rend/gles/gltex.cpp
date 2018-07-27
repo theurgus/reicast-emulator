@@ -1,6 +1,7 @@
 #include "gles.h"
 #include "rend/TexCache.h"
 #include "hw/pvr/pvr_mem.h"
+#include "hw/pvr/pvr_regs.h"
 
 /*
 Textures
