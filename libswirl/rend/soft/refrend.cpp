@@ -540,6 +540,7 @@ struct refrend : Renderer
             if (PixelFlush_tsp_cached(x, y, pb, tag))
             {
                 *zb = invW;
+                *(parameter_tag_t*)pb = 0; // don't draw this pixel, it has been drawn
             }
         }
         // Layer Peeling. zb2 holds the reference depth, zb is used to find closest to reference
@@ -973,13 +974,13 @@ struct refrend : Renderer
 
             //TODO: Render OPAQ modvols
 
-            // Render TAGS to ACCUM
-            RenderParamTags(0, rect.left, rect.top);
-
-            // render PT to ACCUM
+            // render PT to TAGS/ACCUM
             if (!entry.puncht.empty) {
                 RenderObjectList<1>(entry.puncht.ptr_in_words * 4, &rect);
             }
+
+            // Render TAGS to ACCUM
+            RenderParamTags(0, rect.left, rect.top);
 
             // layer peeling rendering
             if (!entry.trans.empty) {
