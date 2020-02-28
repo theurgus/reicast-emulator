@@ -124,8 +124,13 @@ struct refsw_impl : refsw
         }
     }
 
-    parameter_tag_t AddFpuEntry(DrawParameters* params, Vertex* vtx, RenderMode render_mode)
+    parameter_tag_t AddFpuEntry(DrawParameters* params, Vertex* vtx, RenderMode render_mode, ISP_BACKGND_T_type core_tag)
     {
+        auto cache = fpu_entires_lookup.find(core_tag.full);
+        if (cache != fpu_entires_lookup.end()) {
+            return cache->second;
+        }
+
         FpuEntry entry;
         entry.params = *params;
         // generate
@@ -145,20 +150,25 @@ struct refsw_impl : refsw
 
         fpu_entires.push_back(entry);
 
-        return fpu_entires.size();
+        parameter_tag_t tag = fpu_entires.size() << 1;
+
+        fpu_entires_lookup[core_tag.full] = tag;
+
+        return tag;
     }
 
     void ClearFpuEntries() {
         fpu_entires.clear();
+        fpu_entires_lookup.clear();
     }
 
     // Lookup/create cached TSP parameters, and call PixelFlush_tsp
     static bool PixelFlush_tsp(refsw* backend, float x, float y, u8 *rb, float invW, parameter_tag_t tag)
     {
-        if (tag == 0)
+        if (tag & TAG_INVALID)
             return false;
 
-        auto entry = &backend->fpu_entires[tag-1];
+        auto entry = &backend->fpu_entires[(tag>>1) - 1];
         
         return entry->tsp(entry, x, y, 1/invW, rb);
     }
