@@ -371,7 +371,7 @@ public:
 				break;
 #define CANONICAL_FALLBACK 0
 
-#if CANONICAL_FALLBACK
+#if CANONICAL_FALLBACK == 0
 			case shop_sync_sr:
 				GenCallRuntime(UpdateSR);
 				break;
